@@ -2,9 +2,10 @@ grammar PythonGrammar ;
 start: (expr NEWLINE)*;
 expr : expr ('*' | '/') expr
      | expr ('+' | '-') expr
+     | expr ('%') expr
+     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
      | INT
-     | '(' expr ')'
-     | printRule;
+     | '(' expr ')';
 
 
 NEWLINE: [\n]+ ;

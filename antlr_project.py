@@ -1,8 +1,8 @@
 import sys
 from antlr4 import *
 from antlr4.tree.Trees import Trees
-from PythonGrammerLexer import PythonGrammarLexer
-from PythonGrammerParser import PythonGrammarParser
+from PythonGrammarLexer import PythonGrammarLexer
+from PythonGrammarParser import PythonGrammarParser
 
 
 def main(argv):
@@ -10,7 +10,7 @@ def main(argv):
     lexer = PythonGrammarLexer(io_stream)
     stream = CommonTokenStream(lexer)
     parser = PythonGrammarParser(stream)
-    tree = parser.startRule()
+    tree = parser.start()
     print(Trees.toStringTree(tree, None, parser))
 
 if __name__ == '__main__':
