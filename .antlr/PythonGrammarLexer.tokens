@@ -25,6 +25,7 @@ NEWLINE=24
 INT=25
 ID=26
 WS=27
+COMMENT=28
 '='=1
 '*'=2
 '/'=3
