@@ -1,39 +1,44 @@
 grammar PythonGrammar ;
-start: (expr NEWLINE)*;
 
-statements: statement+;
+//START VARIABLE
+start: (decl | expr)+ EOF;
 
-statement: compound_stmt | simple_stmts;
-
-simple_stmts:
-     | ';'.simple_stmt+ [';'] NEWLINE;
-
-simple_stmt:
-     | assignment;
-
-compound_stmt:
-     | if_stmt;
+//PRODUCTIONS
+decl: ID '=' INT;
 
 expr : expr ('*' | '/') expr
      | expr ('+' | '-') expr
      | expr ('%') expr
      | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
      | INT
+     | ID
      | '(' expr ')';
 
-
-NEWLINE: [\n]+ ;
-INT    : [0-9]+ ;
-
-block:
-     | NEWLINE INDENT statements DEDENT
-     | simple_stmts;
+conditional:
+     | ID '<' ID
+     | ID '>' ID
+     | ID '<=' ID
+     | ID '>=' ID
+     | ID '==' ID
+     | ID '!=' ID;
 
 if_stmt:
-     | 'if' expr ':' block elif_stmt
-     | 'if' expr ':' block [elif_block];
+     | 'if' conditional ':' expr
+     | 'if' conditional ':' expr elif_stmt
+     | 'if' conditional ':' expr else_stmt;
+
 elif_stmt:
-     | 'elif' expr ':' block elif_stmt
-     | 'elif' expr ':' block [else_block];
-else_block:
-     | 'else' ';' block;
+     | 'elif' conditional ':' expr
+     | 'elif' conditional ';' expr elif_stmt
+     | 'elif' conditional ';' expr else_stmt;
+
+else_stmt:
+     | 'else' expr;
+
+//TOKENS
+NEWLINE: [\n]+ ;
+INT    : [0-9]+ | '-'[1-9]*;
+ID : [a-z][a-zA-Z0-9_]*; // identifiers
+WS : [ \t\n]+ -> skip;
+
+
