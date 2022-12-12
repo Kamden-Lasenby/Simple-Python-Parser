@@ -42,7 +42,9 @@ while_stmt: 'while' conditional ':' block;
 
 for_stmt: 'for' expr 'in' expr ':' block;
 
+parameters: ID*;
 
+function_def: 'def' ID '(' parameters ')' ':' block;
 
 //TOKENS
 NEWLINE: [\n]+;

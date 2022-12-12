@@ -44,6 +44,15 @@ class PythonGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonGrammarParser#block.
+    def enterBlock(self, ctx:PythonGrammarParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#block.
+    def exitBlock(self, ctx:PythonGrammarParser.BlockContext):
+        pass
+
+
     # Enter a parse tree produced by PythonGrammarParser#if_stmt.
     def enterIf_stmt(self, ctx:PythonGrammarParser.If_stmtContext):
         pass
@@ -59,6 +68,51 @@ class PythonGrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by PythonGrammarParser#elif_stmt.
     def exitElif_stmt(self, ctx:PythonGrammarParser.Elif_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#else_stmt.
+    def enterElse_stmt(self, ctx:PythonGrammarParser.Else_stmtContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#else_stmt.
+    def exitElse_stmt(self, ctx:PythonGrammarParser.Else_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#while_stmt.
+    def enterWhile_stmt(self, ctx:PythonGrammarParser.While_stmtContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#while_stmt.
+    def exitWhile_stmt(self, ctx:PythonGrammarParser.While_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#for_stmt.
+    def enterFor_stmt(self, ctx:PythonGrammarParser.For_stmtContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#for_stmt.
+    def exitFor_stmt(self, ctx:PythonGrammarParser.For_stmtContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#parameters.
+    def enterParameters(self, ctx:PythonGrammarParser.ParametersContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#parameters.
+    def exitParameters(self, ctx:PythonGrammarParser.ParametersContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#function_def.
+    def enterFunction_def(self, ctx:PythonGrammarParser.Function_defContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#function_def.
+    def exitFunction_def(self, ctx:PythonGrammarParser.Function_defContext):
         pass
 
 
