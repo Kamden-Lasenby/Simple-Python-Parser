@@ -31,12 +31,16 @@ if_stmt:
      | 'if' conditional ':' block else_stmt;
 
 elif_stmt:
-     | 'elif' conditional ':' expr
-     | 'elif' conditional ';' expr elif_stmt
-     | 'elif' conditional ';' expr else_stmt;
+     | 'elif' conditional ':' block
+     | 'elif' conditional ';' block elif_stmt
+     | 'elif' conditional ';' block else_stmt;
 
 else_stmt:
      | 'else' block;
+
+while_stmt: 'while' conditional ':' block;
+
+for_stmt: 'for' expr 'in' expr ':' block;
 
 
 
