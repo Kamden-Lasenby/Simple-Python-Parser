@@ -2,7 +2,7 @@ grammar PythonGrammar ;
 // INDENT DEDENT
 tokens { INDENT, DEDENT }
 //START VARIABLE
-start: (decl | expr)+ EOF;
+start: (decl | expr )+ EOF | if_stmt | while_stmt | if_stmt | function_def;
 
 //PRODUCTIONS
 decl: ID '=' INT;
